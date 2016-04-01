@@ -32,6 +32,9 @@ async function play(){
    let quote = await asyncStock(symbols[i]);
    console.log('stock:', symbols[i], 'quote:', quote);
   }
+
+  let quotes = await Promise.all(symbols.map(s => asyncStock(s)));
+  console.log('quotes:', quotes);
 }
 
 play();
